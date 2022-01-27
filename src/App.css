@@ -23,12 +23,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100px;
-  background-image: linear-gradient(to top, #fd295edf 0%, #d41c16 100%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
+  color: #dd3b3b;
   cursor: pointer;
   font-size: 2.7rem;
   font-weight: 700;
