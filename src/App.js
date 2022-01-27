@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Search from "./components/Search";
+import FeaturedMovies from "./components/FeaturedMovies";
+import Footer from "./components/Footer";
 
 function App() {
+  const [search, setSearch] = useState("");
+  const [movies, setMovies] = useState([]);
+  const [btnDisabled, setBtnDisabled] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Navbar />
+      <Search
+        search={search}
+        setSearch={setSearch}
+        setMovies={setMovies}
+        btnDisabled={btnDisabled}
+        setBtnDisabled={setBtnDisabled}
+      />
+      <FeaturedMovies movies={movies} setMovies={setMovies} />
+      <Footer />
     </div>
   );
 }
