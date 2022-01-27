@@ -1,6 +1,3 @@
-const SEARCH_API =
-  "https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=";
-
 function Search({ search, setSearch, setMovies, btnDisabled, setBtnDisabled }) {
   const handleOnchange = (e) => {
     if (search === "") {
@@ -14,7 +11,7 @@ function Search({ search, setSearch, setMovies, btnDisabled, setBtnDisabled }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const fetchMovies = async () => {
-      const response = await fetch(SEARCH_API + search);
+      const response = await fetch(process.env.REACT_APP_SEARCH_API + search);
       const moviesResults = await response.json();
       setMovies(moviesResults.results);
     };
