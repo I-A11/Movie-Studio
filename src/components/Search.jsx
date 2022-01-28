@@ -1,10 +1,13 @@
 function Search({ search, setSearch, setMovies, btnDisabled, setBtnDisabled }) {
   const handleOnchange = (e) => {
-    if (search === "") {
+    if (search.trim() === "") {
       setBtnDisabled(true);
-    } else {
+    } else if (search !== "" && search.trim().length >= 0) {
       setBtnDisabled(false);
     }
+    // else {
+    //   setBtnDisabled(false);
+    // }
     setSearch(e.target.value);
   };
 

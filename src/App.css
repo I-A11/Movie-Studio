@@ -118,17 +118,28 @@ body {
   background-color: #fff;
   color: #5a5858;
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
+  height: 400px;
   padding: 15px;
   overflow: auto;
   max-height: 100%;
   box-shadow: 0px -3px 5px rgba(0, 0, 0, 0.1);
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
-  transform: translateY(105%);
+  transform: translateY(-105%);
   transition: transform 0.3s ease-in-out;
+}
+
+.height1 {
+  height: 200px;
+}
+.height2 {
+  height: 400px;
+}
+.height3 {
+  height: 280px;
 }
 
 .movie:hover .movie-over {
@@ -142,7 +153,7 @@ body {
 }
 
 .tag.green {
-  color: #0e770e;
+  color: #17c717;
 }
 .tag.orange {
   color: #ffa500;

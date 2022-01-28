@@ -11,6 +11,16 @@ const setVoteClass = (vote) => {
     return "red";
   }
 };
+
+const setOverviewClass = (overview) => {
+  if (overview.length < 150) {
+    return "height1";
+  } else if (overview.length < 250) {
+    return "height3";
+  } else {
+    return "height2";
+  }
+};
 function Movie({ title, poster_path, overview, vote_average }) {
   return (
     <div className='movie'>
@@ -28,7 +38,7 @@ function Movie({ title, poster_path, overview, vote_average }) {
           {vote_average}
         </span>
       </div>
-      <div className='movie-over'>
+      <div className={`movie-over ${setOverviewClass(overview)}`}>
         <h2>Overview</h2>
         <p>{overview}</p>
       </div>
