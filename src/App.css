@@ -171,6 +171,14 @@ body {
   color: #fff;
 }
 
+.not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 480px;
+  font-size: 1rem;
+}
+
 @media screen and (max-width: 300px) {
   .nav-container {
     font-size: 2rem;

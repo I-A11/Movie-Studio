@@ -20,7 +20,11 @@ function App() {
         btnDisabled={btnDisabled}
         setBtnDisabled={setBtnDisabled}
       />
-      <FeaturedMovies movies={movies} setMovies={setMovies} />
+      <FeaturedMovies
+        movies={movies}
+        setMovies={setMovies}
+        setSearch={setSearch}
+      />
       <Footer />
     </div>
   );
