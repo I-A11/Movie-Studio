@@ -1,26 +1,19 @@
-function Search({ search, setSearch, setMovies, btnDisabled, setBtnDisabled }) {
+import { useGlobalContext } from "../context/context";
+
+function Search() {
+  const {
+    search,
+    setSearch,
+    btnDisabled,
+    setBtnDisabled,
+    fetchMovies,
+    handleSubmit,
+  } = useGlobalContext();
   const handleOnchange = (e) => {
-    if (search.trim() === "") {
-      setBtnDisabled(true);
-    } else if (search !== "" && search.trim().length >= 0) {
+    if (search.trim().length >= 1) {
       setBtnDisabled(false);
     }
-    // else {
-    //   setBtnDisabled(false);
-    // }
     setSearch(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const fetchMovies = async () => {
-      const response = await fetch(process.env.REACT_APP_SEARCH_API + search);
-      const moviesResults = await response.json();
-      setMovies(moviesResults.results);
-    };
-    fetchMovies();
-    setSearch("");
-    setBtnDisabled(true);
   };
 
   return (
@@ -34,10 +27,17 @@ function Search({ search, setSearch, setMovies, btnDisabled, setBtnDisabled }) {
           value={search}
           onChange={handleOnchange}
         />
-        <button type='submit' disabled={btnDisabled} className='btn'>
+        <button
+          type='submit'
+          className={`${btnDisabled ? "btn btn-disabled" : "btn"}`}
+          disabled={btnDisabled}
+        >
           Search
         </button>
       </form>
+      <button className='btn btn-back' onClick={fetchMovies}>
+        Back to movies
+      </button>
     </div>
   );
 }

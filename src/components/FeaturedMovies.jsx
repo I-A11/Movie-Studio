@@ -1,18 +1,11 @@
-import { useEffect } from "react";
+import { useGlobalContext } from "../context/context";
 import Movie from "./Movie";
-import Search from "./Search";
 
-function FeaturedMovies({ movies, setMovies, setSearch }) {
-  const fetchData = async () => {
-    const response = await fetch(process.env.REACT_APP_FEATURED_API);
-    const moviesResults = await response.json();
-    setMovies(moviesResults.results);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
+function FeaturedMovies() {
+  const { movies, setSearch, isLoading } = useGlobalContext();
+  if (isLoading) {
+    return <div className='loading'></div>;
+  }
   return (
     <div className='movie-container'>
       {movies.length > 0 && setSearch.length > 0 ? (
