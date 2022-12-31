@@ -6,7 +6,6 @@ const AppProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
-  const [btnDisabled, setBtnDisabled] = useState(true);
 
   const fetchMovies = async () => {
     try {
@@ -36,16 +35,11 @@ const AppProvider = ({ children }) => {
       console.log(error);
     }
     setSearch("");
-    setBtnDisabled(true);
   };
 
   useEffect(() => {
     fetchMovies();
   }, []);
-
-  useEffect(() => {
-    handleSubmit();
-  }, [search]);
 
   return (
     <AppContext.Provider
@@ -54,8 +48,6 @@ const AppProvider = ({ children }) => {
         setSearch,
         movies,
         setMovies,
-        btnDisabled,
-        setBtnDisabled,
         handleSubmit,
         isLoading,
         fetchMovies,

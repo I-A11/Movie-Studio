@@ -1,18 +1,8 @@
 import { useGlobalContext } from "../context/context";
 
 function Search() {
-  const {
-    search,
-    setSearch,
-    btnDisabled,
-    setBtnDisabled,
-    fetchMovies,
-    handleSubmit,
-  } = useGlobalContext();
+  const { search, setSearch, fetchMovies, handleSubmit } = useGlobalContext();
   const handleOnchange = (e) => {
-    if (search.trim().length >= 1) {
-      setBtnDisabled(false);
-    }
     setSearch(e.target.value);
   };
 
@@ -26,12 +16,9 @@ function Search() {
           className='search'
           value={search}
           onChange={handleOnchange}
+          required
         />
-        <button
-          type='submit'
-          className={`${btnDisabled ? "btn btn-disabled" : "btn"}`}
-          disabled={btnDisabled}
-        >
+        <button type='submit' className='btn'>
           Search
         </button>
       </form>
