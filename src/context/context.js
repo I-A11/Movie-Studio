@@ -28,7 +28,6 @@ const AppProvider = ({ children }) => {
         setMovies(moviesResults.results);
         setIsLoading(false);
       } else {
-        alert("Please enter a valid movie name");
         setIsLoading(false);
       }
     } catch (error) {
